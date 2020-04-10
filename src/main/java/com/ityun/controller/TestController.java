@@ -14,7 +14,7 @@ public class TestController {
     }
 
     @PostMapping("/test2")
-    public String doTest2(@RequestBody @RequestParam @RequestAttribute @NotBlank(message = "id不能空") String id, @NotBlank(message = "username不能为空") String username) {
+    public String doTest2(@RequestBody @NotBlank(message = "id不能空") String id, @NotBlank(message = "username不能为空") String username) {
         return "test post";
     }
 }
