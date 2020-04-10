@@ -13,6 +13,10 @@ public interface FactoryMapper {
     @Select("select * from factory where id = #{id}")
     Factory findById(@Param("id") int id);
 
+    @Results({
+            @Result(property = "name", column = "name"),
+            @Result(property = "work", column = "work")
+    })
     @Select("select * from factory")
     List<Factory> all();
 

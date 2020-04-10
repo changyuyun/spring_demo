@@ -1,6 +1,7 @@
 package com.ityun.controller;
 
 import com.ityun.domain.Factory;
+import com.ityun.response.Response;
 import com.ityun.service.FactoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,13 +18,14 @@ public class MybatisController {
     private FactoryService factoryService;
 
     @RequestMapping(value = "mybatis")
-    public String mybatis() {
+    public Response mybatis() {
         int i = factoryService.insertFactory("ityun", 18, "it");
         System.out.println(i);
         List<Factory> factories = factoryService.allFactory();
-        for (Factory factory : factories) {
-            System.out.println(factory);
-        }
-        return "";
+        Response response = new Response();
+        response.setCode(1);
+        response.setMessage("ok");
+        response.setData(factories);
+        return response;
     }
 }
