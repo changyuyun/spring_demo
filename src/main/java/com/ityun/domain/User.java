@@ -7,12 +7,12 @@ import javax.validation.constraints.Size;
 public class User {
     private int uid;
 
-    @NotNull
-    @Size(min = 2, max = 5)
+    @NotNull(message = "username不能是空")
+    @Size(min = 2, max = 5, message = "username大于2 and 小于5")
     private String username;
 
-    @NotNull
-    @Email
+    @NotNull(message = "email不能是空")
+    @Email(message = "email格式错误")
     private String email;
 
     public User() {

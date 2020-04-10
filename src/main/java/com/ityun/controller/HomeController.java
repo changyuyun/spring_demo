@@ -4,6 +4,7 @@ import com.ityun.domain.User;
 import com.ityun.response.Response;
 import com.ityun.service.impl.UserServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -18,7 +19,7 @@ public class HomeController {
     private UserServiceImpl userService;
 
     @PostMapping(value = "/")
-    public Response index(@Valid @RequestBody User user) {
+    public Response index(@Validated @RequestBody User user) {
         List list = userService.getAll();
         Response response = new Response();
         response.setCode(1);

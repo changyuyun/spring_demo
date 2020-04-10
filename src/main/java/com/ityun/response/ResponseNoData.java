@@ -10,6 +10,19 @@ public class ResponseNoData {
     public ResponseNoData() {
     }
 
+    public ResponseNoData(int code, String message) {
+        this.code = code;
+        this.message = message;
+    }
+
+    public static ResponseNoData success(int code, String message) {
+        return new ResponseNoData(code, message);
+    }
+
+    public static ResponseNoData error(int code, String message) {
+        return new ResponseNoData(code, message);
+    }
+
     public int getCode() {
         return code;
     }

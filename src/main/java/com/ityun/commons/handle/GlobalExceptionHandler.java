@@ -1,6 +1,7 @@
 package com.ityun.commons.handle;
 
-import org.springframework.web.bind.MethodArgumentNotValidException;
+import com.ityun.response.ResponseNoData;
+import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
@@ -9,11 +10,9 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
  */
 @RestControllerAdvice
 public class GlobalExceptionHandler {
-    /**
-     * 方法参数校验
-     */
-    /*@ExceptionHandler(MethodArgumentNotValidException.class)
-    public ReturnVO handleMethodArgumentNotValidException(MethodArgumentNotValidException e) {
-        return new ReturnVO().error(e.getBindingResult().getFieldError().getDefaultMessage());
-    }*/
+    @ExceptionHandler(BindException.class)
+    public ResponseNoData handleBindException(BindException e) {
+        String message = e.getAllErrors().get(0).getDefaultMessage();
+        return ResponseNoData.error(-1, message);
+    }
 }

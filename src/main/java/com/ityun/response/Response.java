@@ -11,6 +11,20 @@ public class Response {
     public Response() {
     }
 
+    public Response(int code, String message, Object data) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
+    }
+
+    public static Response success(int code, String message, Object data) {
+        return new Response(code, message, data);
+    }
+
+    public static Response error(int code, String message, Object data) {
+        return new Response(code, message, data);
+    }
+
     public int getCode() {
         return code;
     }
