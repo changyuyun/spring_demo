@@ -15,3 +15,7 @@ spring boot mvc 学习项目
 # spring_demo
 
 springboot框架学习日记
+
+# 使用到的技术
+
+springboot + mybatis + druid + mysql
