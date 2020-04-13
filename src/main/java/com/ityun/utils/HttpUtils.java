@@ -5,6 +5,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
 
 /**
  * Http 工具类
@@ -37,8 +39,8 @@ public class HttpUtils {
      * @param postParams
      * @return
      */
-    public static Map<String, String> getAllParams(HttpServletRequest request, Map<String, String> postParams) {
-        Map<String, String> result = new HashMap<>();
+    public static SortedMap<String, String> getAllParams(HttpServletRequest request, Map<String, String> postParams) {
+        SortedMap<String, String> result = new TreeMap<>();
         Map<String, String> urlParams = getUrlParams(request);
         for (Map.Entry<String, String> entry : urlParams.entrySet()) {
             result.put(entry.getKey(), entry.getValue());
